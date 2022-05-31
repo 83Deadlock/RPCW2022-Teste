@@ -1,0 +1,47 @@
+Título: RPCW - Teste
+UC: Representação e Processamento de Conhecimento na Web
+Data: 31/05/2022
+
+Nome: José Pedro Castro Ferreira
+Número: PG47375
+
+Tratamento dos datasets:
+    O tratamento feito sobre o dataset original foi apenas uma divisão do mesmo em 2, uma vez que tínhamos dois arrays de objetos no mesmo ficheiro json, um para cidades e outro para ligações.
+    Separamo-los em 2 ficheiros json diferentes (cidades.json e ligacoes.json) e, é sobre estes que vamos trabalhar.
+
+    Mais à frente durante a realização do teste, reparei que em todo o código tinha escrito "distancia" (campo dos objetos do ligacoes.json) em vez de "distância". 
+    Por ser mais cómodo, troquei o nome do campo no ficheiro json, dei drop à coleção na BD e voltei a dar import. Foi a única alteração feita em termos de caracteres/campos dos datasets originais.
+
+Setup de bases de dados:
+    Para o exercício 1, utilizei o comando mongoimport para importar dados de ficheiros json para uma base de dados MongoDB chamada "MAPA2022" (com o uso da flag -d), para duas coleções "ligacoes" e "cidades" (com o uso da flag -c).
+    Como os ficheiros json se tratam de arrays de objetos JSON, foi necessário o uso da flag --jsonArray ao fazer import para a BD.
+    Comandos: 
+        mongoimport -d MAPA2022 -c ligacoes ligacoes.json --jsonArray
+        mongoimport -d MAPA2022 -c cidades cidades.json --jsonArray
+
+Perguntas "aquecimento":
+
+    1.1: 
+        Quantidade de processos (nível 3) descendentes da class 750 = 18
+        Processos (níveis 3) descendentes da class 750 = ['750.10.001', '750.10.002', '750.10.300', '750.10.600', '750.10.601', '750.10.602', '750.20.001', '750.20.002', '750.20.003', '750.20.300', '750.20.301', '750.20.600', '750.20.601', '750.30.001', '750.30.300', '750.30.600', '750.30.601', '750.30.602']
+
+    1.2:
+        Número de entidades catalogadas = 647
+
+    1.3: 
+        Quantidade de processos descendentes de 750.20 = 7
+
+    1.4: 
+        Quantidade de processos relacionados com 750.20.600 = 24
+
+Como executar:
+
+    Exercício 1:
+        Basta abrir a pasta ex1/testeEx1 e correr o comando "npm start".
+        No browser aceder a "localhost:3000/api/cidades" ou "localhost:3000/api/distritos" ou "localhost:3000/api/ligacoes".
+        Todas as alíneas estão devidamente implementadas.
+
+    Exercício 2:
+        Basta abrir a pasta ex2 e correr o comando "npm start".
+        No browser aceder a "localhost:3000" e a partir da home page, todas as outras são acessíveis.
+        Todas as alíneas estão devidamente implementadas.

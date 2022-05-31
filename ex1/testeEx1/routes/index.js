@@ -77,15 +77,12 @@ router.get('/ligacoes', function (req, res, next) {
       .catch(error => res.render('error', { error: error }))
   }
   else if (query['dist']) {
-    console.log("aqui")
     Mapa.listarCidade()
       .then(data => {
         var cidades = {}
         data.forEach(c => cidades[c.id] = c.nome)
-        console.log("aqui2")
         Mapa.lookUpDistancia()
           .then(dados => {
-            console.log("aqui3")
             var lig = []
             dados.forEach(o => {
               console.log(o.distancia)
